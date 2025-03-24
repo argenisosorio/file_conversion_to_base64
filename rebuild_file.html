@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
+  <title>Reconstruir archivo</title>
+</head>
+<body>
+  <a href="index.html">Inicio</a> | <a href="rebuild_file.html">Reconstruir archivo</a>
+  <h1>Pega la cadena en base64 para reconstruir el archivo</h1>
+  <textarea id="base64Input" rows="10" cols="50"></textarea>
+  <br>
+  <br>
+  <button id="generateButton">Generar archivo</button>
+  <script>
+    document.getElementById('generateButton').addEventListener('click', function() {
+      var base64Input = document.getElementById('base64Input').value;
+      if (base64Input.trim() !== "") {
+        var link = document.createElement('a');
+        link.href = base64Input;
+        link.download = 'archivo_reconstruido';
+        link.click();
+      } else {
+        alert('Por favor, pega una cadena en base64 válida.');
+      }
+    });
+  </script>
+</body>
+</html>
